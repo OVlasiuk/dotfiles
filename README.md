@@ -16,7 +16,7 @@ A script that treats the workspaces of the window manager as a 2-dimensional gri
 **Prerequisites:** wmctrl.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/OVlasiuk/snippets/master/img/expogrid.png" width="800" title="A Cinnamon Expo view with the 'Grid' option enabled.">
+<img src="https://raw.githubusercontent.com/OVlasiuk/snippets/master/img/expogrid.png" width="600" title="A Cinnamon Expo view with the 'Grid' option enabled.">
 </p>
 
 Makes it a little easier to move windows between workspaces. Cinnamon allows
