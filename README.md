@@ -16,7 +16,7 @@ A script that treats the workspaces of the window manager as a 2-dimensional gri
 **Prerequisites:** wmctrl.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/OVlasiuk/snippets/master/img/expogrid.png" width="600" title="A Cinnamon Expo view with the 'Grid' option enabled.">
+<img src="https://raw.githubusercontent.com/OVlasiuk/snippets/master/img/expogrid.png" width="800" title="A Cinnamon Expo view with the 'Grid' option enabled.">
 </p>
 
 Makes it a little easier to move windows between workspaces. Cinnamon allows
@@ -26,12 +26,14 @@ of the workspaces in terms of a grid. The pictured configuration is
 Call the script like this
 
 > wspacetorus.py -h
+
 to show help;
 
 > wspacetorus.py -t left
-move the current window to the workspace to the left; the directions are
+
+to move the current window to the workspace to the left; the directions are
 determined as in the picture above and periodized, so for example moving left
-in workspace 1 puts you in workspace 3.
+in workspace 1 puts you in workspace 2.
 
 There is a Cinnamon [applet](https://cinnamon-spices.linuxmint.com/applets/view/116)
 that is supposed to achieve the same goal, but it conflicts with the Expo, and is quite
