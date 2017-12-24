@@ -21,15 +21,21 @@ A script that treats the workspaces of the window manager as a 2-dimensional gri
 
 Makes it a little easier to move windows between workspaces. Cinnamon allows
 direct navigation between the workspaces, but I find it a little nicer to think
-of the workspaces in terms of a grid. The pictured configuration is 
+of the workspaces in terms of a grid. The pictured configuration is the default.
+The grid size can be modified by passing the appropriate parameter values; see
+the built-in help for details.
 
 Call the script like this
 
-> wspacetorus.py -h
+```
+wspacetorus.py -h
+```
 
 to show help;
 
-> wspacetorus.py -t left
+```
+wspacetorus.py -t left
+```
 
 to move the current window to the workspace to the left; the directions are
 determined as in the picture above and periodized, so for example moving left
