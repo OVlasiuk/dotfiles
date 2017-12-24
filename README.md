@@ -1,56 +1,61 @@
-# dotfiles
+# Code snippets
+
+This repository is intended for scripts in Python, Bash, and Vimscript, used as
+hacks and tweaks in my current Linux install.
 
 ## Contents:
 
-- an example .vimrc file
+- **wspacetorus.py**
+- **.vimrc**
 
-## Output of ':h local-additions':
+## Usage
 
-_conque_gdb.txt_    Vim version 7.3   Last change: 2013 May 7
+### wspacetorus.py
 
-_conque_term.txt_   Vim version 7.3    Last change: 2013 April 18
+A script that treats the workspaces of the window manager as a 2-dimensional grid.<br>
+**Prerequisites:** wmctrl.
 
-_voom.txt_      VOoM -- Vim two-pane outliner
+<p align="center">
+<img src="https://raw.githubusercontent.com/OVlasiuk/snippets/master/img/expogrid.png" width="600" title="A Cinnamon Expo view with the 'Grid' option enabled.">
+</p>
 
-_youcompleteme_  YouCompleteMe: a code-completion engine for Vim
+Makes it a little easier to move windows between workspaces. Cinnamon allows
+direct navigation between the workspaces, but I find it a little nicer to think
+of the workspaces in terms of a grid. The pictured configuration is 
 
-_calendar.txt_	A calendar application for Vim
+Call the script like this
 
-_delimitMate.txt_   Trying to keep those beasts at bay! v2.7     *delimitMate*
+> wspacetorus.py -h
+to show help;
 
-_diffchar.txt_  Highlight the exact differences, based on characters and words
+> wspacetorus.py -t left
+move the current window to the workspace to the left; the directions are
+determined as in the picture above and periodized, so for example moving left
+in workspace 1 puts you in workspace 3.
 
-_gundo.txt_   Graph your undo tree so you can actually USE it.
+There is a Cinnamon [applet](https://cinnamon-spices.linuxmint.com/applets/view/116)
+that is supposed to achieve the same goal, but it conflicts with the Expo, and is quite
+buggy.
 
-_NERD_commenter.txt_         Plugin for commenting code
 
-_NERD_tree.txt_   A tree explorer plugin that owns your momma!
+### .vimrc
 
-_pymode.txt_  *python-mode.txt*  *pymode* *python-mode*
+A sample startup script for (Neo)vim.<br>
+**Prerequisites:** a Vim-compatible editor.
 
-_tagbar.txt_    Display tags of a file ordered by scope
+I am using it with a Neovim on Arch (Manjaro), and before that on Mint. Essentially
+everything not related to Youcompleteme, Pymode, and such should be portable.
+Some autocommands towards the end, especially those involving window motions are
+quite useful. The dual keyboard layout with **set keymap=ukrainian-jcuken** is
+apparently somewhat uncommon, and not very practical; manually remapping the
+symbols in **nmap** seems a better option.
 
-_Vdebug_   A powerful, fast, multi-language debugger for Vim
+The complete list of installed Vim plugins using this *.vim* is:<br>
+conque_gdb, conque_term, calendar, delimitMate, diffchar, gundo, NERD_commenter,
+NERDTree, pymode, tagbar, UltiSnips, airline, airline,-themes, bufferline,
+solarized, cursorword, fugitive,  misc, session, speeddating, surround,
+tmux-navigator, vimtex, vimwiki, vissort, youcompleteme.<br>
+They all can be found through the [vimawesome.com](https://vimawesome.com)
+website, for example.
 
-_airline.txt_  Lean and mean status/tabline that's light as air
-
-_bufferline.txt_  Simple plugin for generating buffer list names
-
-_solarized.vim_ for Vim version 7.3 or newer. Modified: 2011 May 05
-
-_misc.txt_  Miscellaneous auto-load Vim scripts
-
-_session.txt_  Extended session management for Vim
-
-_speeddating.txt_ Use CTRL-A/CTRL-X to increment dates, times, and more
-
-_surround.txt_  Plugin for deleting, changing, and adding "surroundings"
-
-_tmux-navigator.txt_ Plugin to allow seamless navigation between tmux and vim
-
-_vimtex.txt_    A modern vim plugin for editing LaTeX files.
-
-_vimwiki.txt_   A Personal Wiki for Vim
-
-_vissort.txt_	Visual-Mode Based Sorting		Sep 21, 2012
 
