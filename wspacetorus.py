@@ -13,19 +13,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-"""
-A script that uses *wmctrl* command to present the workspaces as positioned on a
-X_WORKSPACESxY_WORKSPACES flat torus: periodic in x- and y-coordinate.
-Indexing is row-major; this script combines well with the plugin
-https://cinnamon-spices.linuxmint.com/applets/view/116
-"""
 
 import os
 import re
+import sys
 from optparse import OptionParser
 
-# os.system('wmctrl -s 3')
-# wmctrl -r :ACTIVE: -t NUM wmctrl -s NUM
+help_text = """
+Adapts inter-workspace motions in any wmctrl-compatible window manager as if the
+workspaces are positioned on a X_WORKSPACESxY_WORKSPACES flat torus: periodic in
+x- and y-coordinate. Indexing is row-major. Defaults to 2x2 workspaces.
+
+Usage:
+    Install wmctrl;
+    to jump to an adjacent workspace, do
+>   wspacetorus.py -d DIRECTION
+    with DIRECTION in ['left', 'right', 'top', 'bottom']; to move the current
+    window to such workspace, do
+>   wspacetorus.py -t DIRECTION
+    to use with 3x2 (columns-rows) grid, do
+>   wspacetorus.py -t DIRECTION -x 3 -y 2
+
+To see more options, call
+>   wpacetorus.py -h
+
+Check https://github.com/OVlasiuk/snippets for updates.
+You may also want to look at the plugin
+https://cinnamon-spices.linuxmint.com/applets/view/116
+"""
+
+if len(sys.argv) < 2:
+    print(help_text)
+    exit()
 
 
 def get_current_desktop():
@@ -53,13 +72,15 @@ def get_options(parser):
     """ Define command line options."""
     parser.add_option(
         "-d", "--desktop", dest="desktop", default=None,
-        help="Jump to an adjacent workspace, given by 'up', 'down', 'left', 'right'.")
+        help="Jump to an adjacent workspace, given by 'up', 'down', 'left',\
+        'right'.")
     parser.add_option(
         "-t",
         "--todesktop",
         dest="todesktop",
         default=None,
-        help="Move the current window to an adjacent workspace, given by 'up', 'down', 'left', 'right'.")
+        help="Move the current window to an adjacent workspace, given by 'up',\
+        'down', 'left', 'right'.")
     parser.add_option(
         "-x",
         "--xworkspaces",
@@ -73,7 +94,8 @@ def get_options(parser):
         default=2,
         help="The number of rows in the workspace grid. Default: 2.")
     options, args = parser.parse_args()
-    return options.desktop, options.todesktop, options.xworkspaces, options.yworkspaces
+    return options.desktop, options.todesktop, options.xworkspaces,\
+        options.yworkspaces
 
 
 def numerize(inp, X_WORKSPACES):
@@ -114,6 +136,4 @@ def main(desktop, todesktop, X_WORKSPACES, Y_WORKSPACES):
 if __name__ == "__main__":
     parser = OptionParser()
     desktop, todesktop, X_WORKSPACES, Y_WORKSPACES = get_options(parser)
-    print(desktop)
-    print(todesktop)
     main(desktop, todesktop, int(X_WORKSPACES), int(Y_WORKSPACES))
